@@ -1,0 +1,10 @@
+R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Domain\obj\Debug\BennerMicrowave.Domain.csprojAssemblyReference.cache
+R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Domain\obj\Debug\BennerMicrowave.Domain.csproj.CoreCompileInputs.cache
+R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Domain\bin\Debug\BennerMicrowave.Domain.dll
+R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Domain\bin\Debug\BennerMicrowave.Domain.pdb
+R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Domain\bin\Debug\FluentValidation.dll
+R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Domain\bin\Debug\System.ComponentModel.Annotations.dll
+R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Domain\bin\Debug\FluentValidation.xml
+R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Domain\obj\Debug\BennerMicrowave.Domain.csproj.CopyComplete
+R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Domain\obj\Debug\BennerMicrowave.Domain.dll
+R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Domain\obj\Debug\BennerMicrowave.Domain.pdb
