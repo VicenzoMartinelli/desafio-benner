@@ -7,8 +7,10 @@ namespace BennerMicrowave.Domain.Interfaces
     public interface ICookService
     {
         event EventHandler<CookFractionElapsedArgs> CookFractionTimeElapsedEventHandler;
-        event EventHandler CookEndEventHandler;
+        event EventHandler<CookFinishedEventArgs> CookFinishedEventHandler;
         void Start(CookParams @params);
         void Stop();
+        void Pause();
+        void Continue();
     }
 }

@@ -52,10 +52,28 @@
     <Compile Include="FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPrograms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrograms.Designer.cs">
+      <DependentUpon>FormPrograms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectProgram.Designer.cs">
+      <DependentUpon>FormSelectProgram.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrograms.resx">
+      <DependentUpon>FormPrograms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectProgram.resx">
+      <DependentUpon>FormSelectProgram.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,6 +105,10 @@
     <ProjectReference Include="..\BennerMicrowave.Domain\BennerMicrowave.Domain.csproj">
       <Project>{D124B6F1-A6C8-4A8B-8523-68E5ABDCBD89}</Project>
       <Name>BennerMicrowave.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BennerMicroWave.IoC\BennerMicroWave.IoC.csproj">
+      <Project>{61FF5856-BE61-4CCF-B82A-B41D308A5713}</Project>
+      <Name>BennerMicroWave.IoC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

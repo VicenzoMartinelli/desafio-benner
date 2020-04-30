@@ -16,7 +16,7 @@ namespace BennerMicrowave.Application.Services
         private bool _running;
 
         public event EventHandler<CookFractionElapsedArgs> CookFractionTimeElapsedEventHandler;
-        public event EventHandler CookEndEventHandler;
+        public event EventHandler<CookFinishedEventArgs> CookFinishedEventHandler;
 
         public CookService()
         {
@@ -31,7 +31,7 @@ namespace BennerMicrowave.Application.Services
 
         private void Tick(object sender, ElapsedEventArgs e)
         {
-            _feedback += new string('.', _params.Power);
+            _feedback += new string(_params.CookChar, _params.Power);
             _remainingTime -= new TimeSpan(0, 0, 1);
 
             CookFractionTimeElapsedEventHandler(this, new CookFractionElapsedArgs(_feedback, _remainingTime));
@@ -39,9 +39,8 @@ namespace BennerMicrowave.Application.Services
             if (_remainingTime.TotalSeconds == 0)
             {
                 Stop();
-                _feedback += "\n aquecida";
                 CookFractionTimeElapsedEventHandler(this, new CookFractionElapsedArgs(_feedback, _remainingTime));
-                CookEndEventHandler(this, EventArgs.Empty);
+                CookFinishedEventHandler(this, new CookFinishedEventArgs("aquecida"));
             }
 
         }
@@ -63,6 +62,16 @@ namespace BennerMicrowave.Application.Services
         {
             _remainingTime = _params.Time;
             _executionTimer.Enabled = _running = false;
+        }
+
+        public void Pause()
+        {
+            _executionTimer.Enabled = _running = false;
+        }
+
+        public void Continue()
+        {
+            _executionTimer.Enabled = _running = true;
         }
     }
 }

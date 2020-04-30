@@ -1,7 +1,10 @@
-﻿using BennerMicrowave.Application.Services;
-using BennerMicrowave.Domain.Entities;
+﻿using BennerMicrowave.Domain.Entities;
+using BennerMicrowave.Domain.Events;
 using BennerMicrowave.Domain.Interfaces;
+using BennerMicrowave.Domain.Services;
+using BennerMicroWave.IoC;
 using System;
+using System.Linq;
 using System.Media;
 using System.Windows.Forms;
 
@@ -11,16 +14,24 @@ namespace BennerMicrowave.Presentation
     {
         private CookParams _params;
         private readonly ICookService _cookService;
+        private readonly ICookProgramService _cookProgramService;
 
         private readonly DateTime _today;
-        private bool _canEdit = true;
+        private bool _cooking = false;
+        private bool _paused = false;
+
         public FormHome()
         {
             InitializeComponent();
             _today = DateTime.Today.Date;
-            _cookService = new CookService();
+
+            // Resolve dependencies
+            _cookService = ServiceContainer.Get<ICookService>();
+            _cookProgramService = ServiceContainer.Get<ICookProgramService>();
+
+            // Register listeners
             _cookService.CookFractionTimeElapsedEventHandler += this.CookFractionElapsed_Listener;
-            _cookService.CookEndEventHandler += this.CookEnded_Listener;
+            _cookService.CookFinishedEventHandler += this.CookFinished_Listener;
         }
 
         private void CookFractionElapsed_Listener(object sender, Domain.Events.CookFractionElapsedArgs e)
@@ -32,11 +43,12 @@ namespace BennerMicrowave.Presentation
                 SystemSounds.Hand.Play();
             });
         }
-        private void CookEnded_Listener(object sender, EventArgs e)
+        private void CookFinished_Listener(object sender, CookFinishedEventArgs e)
         {
             this.BeginInvoke((MethodInvoker)delegate
             {
-                _canEdit = true;
+                txtFeedback.AppendText("\n" + e.Feedback);
+                _cooking = false;
                 VerifyInputs();
             });
         }
@@ -58,17 +70,24 @@ namespace BennerMicrowave.Presentation
 
         private void btnQuickStart_Click(object sender, EventArgs e)
         {
-            txtPower.Text = CookParams.DefaultPower.ToString();
-            txtTime.Value = _today + new TimeSpan(0, 0, CookParams.DefaultTimeSeconds);
+            SetDefaultParams();
             Start();
         }
 
-        public void Start()
+        private void SetDefaultParams()
         {
+            txtPower.Text = CookParams.DefaultPower.ToString();
+            txtTime.Value = _today + new TimeSpan(0, 0, CookParams.DefaultTimeSeconds);
+        }
+
+        public void Start(char cookChar = '.')
+        {
+            CleanFeedback();
             _params = new CookParams(
                 Convert.ToInt32(txtPower.Text),
                 txtTime.Value.TimeOfDay,
-                txtFood.Text
+                txtFood.Text,
+                cookChar
             );
 
             if (!_params.IsValid)
@@ -77,16 +96,97 @@ namespace BennerMicrowave.Presentation
                 return;
             }
 
-            _canEdit = false;
+            _cooking = true;
+            _paused = false;
+
             VerifyInputs();
             _cookService.Start(_params);
         }
 
         private void VerifyInputs()
         {
-            txtTime.Enabled = _canEdit;
-            txtPower.Enabled = _canEdit;
-            txtFood.Enabled = _canEdit;
+            btnPause.Text = _paused ? "Continuar" : "Pausar";
+            btnPause.Visible = _cooking;
+            btnStop.Visible = _cooking;
+
+            txtTime.Enabled = !_cooking;
+            txtPower.Enabled = !_cooking;
+            txtFood.Enabled = !_cooking;
+        }
+        private void CleanFeedback()
+        {
+            txtFeedback.Text = string.Empty;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtFeedback.Text = string.Join($"{Environment.NewLine}{new string('=', this.txtFeedback.Height / 8)} {Environment.NewLine}", _cookProgramService.GetCookProgramsByEntry(txtFood.Text).Select(c => c.ToString()));
+        }
+
+        private void btnSearchPrograms_Click(object sender, EventArgs e)
+        {
+            txtFeedback.Text = string.Join($"{Environment.NewLine}{new string('=', this.txtFeedback.Height / 8)} {Environment.NewLine}", _cookProgramService.GetCookPrograms().Select(c => c.ToString()));
+        }
+
+        private void btnNewProgram_Click(object sender, EventArgs e)
+        {
+            new FormPrograms
+            {
+                StartPosition = FormStartPosition.CenterParent
+            }.ShowDialog();
+        }
+
+        private void btnStartWithProgram_Click(object sender, EventArgs e)
+        {
+            var formSelect = new FormSelectProgram
+            {
+                Food = txtFood.Text,
+                StartPosition = FormStartPosition.CenterParent
+            };
+
+            formSelect.ShowDialog();
+
+            if (formSelect.CookProgram != null)
+            {
+                var cookProgram = formSelect.CookProgram;
+
+                txtPower.Text = cookProgram.Power.ToString();
+                txtTime.Value = _today + cookProgram.Time;
+
+                Start(cookProgram.CookCharacter);
+            }
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            if (_cooking)
+            {
+                if (_paused)
+                {
+                    _cookService.Continue();
+                    _paused = false;
+                }
+                else
+                {
+                    _cookService.Pause();
+                    _paused = true;
+                }
+
+                VerifyInputs();
+            }
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            if (_cooking)
+            {
+                _cookService.Stop();
+                _cooking = false;
+
+                SetDefaultParams();
+                CleanFeedback();
+                VerifyInputs();
+            }
         }
     }
 }

@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BennerMicrowave.Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BennerMicrowave.Domain", "BennerMicrowave.Domain\BennerMicrowave.Domain.csproj", "{D124B6F1-A6C8-4A8B-8523-68E5ABDCBD89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BennerMicrowave.Data", "BennerMicrowave.Data\BennerMicrowave.Data.csproj", "{16E0FB4A-5D68-4539-BD9D-0198BFFBFD78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BennerMicroWave.IoC", "BennerMicroWave.IoC\BennerMicroWave.IoC.csproj", "{61FF5856-BE61-4CCF-B82A-B41D308A5713}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BennerMicrowave.Application.Tests", "BennerMicrowave.Application.Tests\BennerMicrowave.Application.Tests.csproj", "{132499E0-E391-4411-8BE9-CF0BCB34FA77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{D124B6F1-A6C8-4A8B-8523-68E5ABDCBD89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D124B6F1-A6C8-4A8B-8523-68E5ABDCBD89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D124B6F1-A6C8-4A8B-8523-68E5ABDCBD89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E0FB4A-5D68-4539-BD9D-0198BFFBFD78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E0FB4A-5D68-4539-BD9D-0198BFFBFD78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E0FB4A-5D68-4539-BD9D-0198BFFBFD78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E0FB4A-5D68-4539-BD9D-0198BFFBFD78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FF5856-BE61-4CCF-B82A-B41D308A5713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FF5856-BE61-4CCF-B82A-B41D308A5713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FF5856-BE61-4CCF-B82A-B41D308A5713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FF5856-BE61-4CCF-B82A-B41D308A5713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{132499E0-E391-4411-8BE9-CF0BCB34FA77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{132499E0-E391-4411-8BE9-CF0BCB34FA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{132499E0-E391-4411-8BE9-CF0BCB34FA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{132499E0-E391-4411-8BE9-CF0BCB34FA77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

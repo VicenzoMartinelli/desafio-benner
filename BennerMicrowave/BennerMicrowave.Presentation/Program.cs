@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BennerMicroWave.IoC;
+using System;
 
 namespace BennerMicrowave.Presentation
 {
@@ -10,6 +11,7 @@ namespace BennerMicrowave.Presentation
         [STAThread]
         private static void Main()
         {
+            Bootstrapper.Initialize();
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             System.Windows.Forms.Application.Run(new FormHome());

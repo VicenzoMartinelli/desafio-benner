@@ -9,3 +9,14 @@ R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Application\obj\
 R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Application\obj\Debug\BennerMicrowave.Application.csproj.CopyComplete
 R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Application\obj\Debug\BennerMicrowave.Application.dll
 R:\Code\dotnetcore\BennerMicrowave.Presentation\BennerMicrowave.Application\obj\Debug\BennerMicrowave.Application.pdb
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\obj\Debug\BennerMicrowave.Application.csprojAssemblyReference.cache
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\obj\Debug\BennerMicrowave.Application.csproj.CoreCompileInputs.cache
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\obj\Debug\BennerMicrowave.Application.dll
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\obj\Debug\BennerMicrowave.Application.pdb
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\bin\Debug\BennerMicrowave.Application.dll
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\bin\Debug\BennerMicrowave.Application.pdb
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\bin\Debug\BennerMicrowave.Domain.dll
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\bin\Debug\FluentValidation.dll
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\bin\Debug\BennerMicrowave.Domain.pdb
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\bin\Debug\FluentValidation.xml
+R:\Code\dotnetcore\desafio-benner\BennerMicrowave\BennerMicrowave.Application\obj\Debug\BennerMicrowave.Application.csproj.CopyComplete

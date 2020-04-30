@@ -49,10 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\CookParams.cs" />
+    <Compile Include="Entities\CookProgram.cs" />
     <Compile Include="Entities\ValidatableEntity.cs" />
+    <Compile Include="Events\CookFinishedEventArgs.cs" />
+    <Compile Include="Events\ValidationFailsEventArgs.cs" />
     <Compile Include="Events\CookFractionElapsedEventArgs.cs" />
+    <Compile Include="Extensions\DomainDefaultValidators.cs" />
+    <Compile Include="Interfaces\ICookProgramRepository.cs" />
+    <Compile Include="Interfaces\ICookProgramService.cs" />
     <Compile Include="Interfaces\ICookService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\CookProgramValidator.cs" />
     <Compile Include="Validators\CookParamsValidator.cs" />
   </ItemGroup>
   <ItemGroup />

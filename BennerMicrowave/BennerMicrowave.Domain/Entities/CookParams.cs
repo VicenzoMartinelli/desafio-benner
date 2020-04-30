@@ -12,11 +12,13 @@ namespace BennerMicrowave.Domain.Entities
         public int Power { get; set; }
         public TimeSpan Time { get; set; }
         public string ThingToCook { get; set; }
-        public CookParams(int power, TimeSpan time, string thingToCook)
+        public char CookChar { get; set; }
+        public CookParams(int power, TimeSpan time, string thingToCook, char cookChar = '.')
         {
             this.Power = power;
             this.Time = time;
             this.ThingToCook = thingToCook;
+            this.CookChar = cookChar;
         }
 
         public override IValidator<CookParams> Validator => new CookParamsValidator();
