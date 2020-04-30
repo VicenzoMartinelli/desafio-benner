@@ -4,6 +4,7 @@ using BennerMicrowave.Domain.Interfaces;
 using BennerMicrowave.Domain.Services;
 using BennerMicroWave.IoC;
 using System;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Windows.Forms;
@@ -38,7 +39,7 @@ namespace BennerMicrowave.Presentation
         {
             this.BeginInvoke((MethodInvoker)delegate
             {
-                this.txtFeedback.Text = e.Feedback;
+                WriteFeedback(e.Feedback);
                 this.txtTime.Value = _today + e.TimeLeft;
                 SystemSounds.Hand.Play();
             });
@@ -48,12 +49,13 @@ namespace BennerMicrowave.Presentation
             this.BeginInvoke((MethodInvoker)delegate
             {
                 txtFeedback.AppendText("\n" + e.Feedback);
+
                 _cooking = false;
                 VerifyInputs();
             });
         }
 
-        private void btnStart_Click(object sender, System.EventArgs e)
+        private void btnStart_Click(object sender, EventArgs e)
         {
             if (InvalidInputs())
             {
@@ -115,17 +117,27 @@ namespace BennerMicrowave.Presentation
         }
         private void CleanFeedback()
         {
-            txtFeedback.Text = string.Empty;
+            WriteFeedback(null);
+        }
+
+        private void WriteFeedback(string text)
+        {
+            txtFeedback.Text = text;
+
+            if (chk.Checked && File.Exists(txtPath.Text))
+            {
+                File.WriteAllText(txtPath.Text, text);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            txtFeedback.Text = string.Join($"{Environment.NewLine}{new string('=', this.txtFeedback.Height / 8)} {Environment.NewLine}", _cookProgramService.GetCookProgramsByEntry(txtFood.Text).Select(c => c.ToString()));
+            WriteFeedback(string.Join($"{Environment.NewLine}{Environment.NewLine}", _cookProgramService.GetCookProgramsByEntry(txtFood.Text).Select(c => c.ToString())));
         }
 
         private void btnSearchPrograms_Click(object sender, EventArgs e)
         {
-            txtFeedback.Text = string.Join($"{Environment.NewLine}{new string('=', this.txtFeedback.Height / 8)} {Environment.NewLine}", _cookProgramService.GetCookPrograms().Select(c => c.ToString()));
+            WriteFeedback(string.Join($"{Environment.NewLine}{Environment.NewLine}", _cookProgramService.GetCookPrograms().Select(c => c.ToString())));
         }
 
         private void btnNewProgram_Click(object sender, EventArgs e)
@@ -187,6 +199,11 @@ namespace BennerMicrowave.Presentation
                 CleanFeedback();
                 VerifyInputs();
             }
+        }
+
+        private void chk_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPath.Visible = chk.Checked;
         }
     }
 }

@@ -44,13 +44,13 @@ namespace BennerMicrowave.Application.Services
             }
 
         }
-
         private void Reset()
         {
             _feedback = _params.ThingToCook;
             _remainingTime = _params.Time;
         }
 
+        public bool Running => _running;
         public void Start(CookParams @params)
         {
             _params = @params;
@@ -63,12 +63,10 @@ namespace BennerMicrowave.Application.Services
             _remainingTime = _params.Time;
             _executionTimer.Enabled = _running = false;
         }
-
         public void Pause()
         {
             _executionTimer.Enabled = _running = false;
         }
-
         public void Continue()
         {
             _executionTimer.Enabled = _running = true;

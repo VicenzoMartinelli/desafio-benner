@@ -45,6 +45,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
+            this.chk = new System.Windows.Forms.CheckBox();
+            this.txtPath = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +56,7 @@
             this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(31)))), ((int)(((byte)(68)))));
             this.btnStart.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.White;
-            this.btnStart.Location = new System.Drawing.Point(15, 332);
+            this.btnStart.Location = new System.Drawing.Point(15, 353);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(160, 78);
             this.btnStart.TabIndex = 2;
@@ -67,7 +69,7 @@
             this.btnQuickStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(31)))), ((int)(((byte)(68)))));
             this.btnQuickStart.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuickStart.ForeColor = System.Drawing.Color.White;
-            this.btnQuickStart.Location = new System.Drawing.Point(195, 332);
+            this.btnQuickStart.Location = new System.Drawing.Point(195, 353);
             this.btnQuickStart.Name = "btnQuickStart";
             this.btnQuickStart.Size = new System.Drawing.Size(160, 78);
             this.btnQuickStart.TabIndex = 3;
@@ -78,6 +80,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.txtPath);
+            this.panel1.Controls.Add(this.chk);
             this.panel1.Controls.Add(this.btnSearchProgramasByFood);
             this.panel1.Controls.Add(this.btnSearchPrograms);
             this.panel1.Controls.Add(this.btnNewProgram);
@@ -92,7 +96,7 @@
             this.panel1.Controls.Add(this.btnQuickStart);
             this.panel1.Location = new System.Drawing.Point(693, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(552, 426);
+            this.panel1.Size = new System.Drawing.Size(552, 444);
             this.panel1.TabIndex = 4;
             // 
             // btnSearchProgramasByFood
@@ -100,7 +104,7 @@
             this.btnSearchProgramasByFood.BackColor = System.Drawing.Color.White;
             this.btnSearchProgramasByFood.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchProgramasByFood.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(31)))), ((int)(((byte)(68)))));
-            this.btnSearchProgramasByFood.Location = new System.Drawing.Point(195, 236);
+            this.btnSearchProgramasByFood.Location = new System.Drawing.Point(195, 257);
             this.btnSearchProgramasByFood.Name = "btnSearchProgramasByFood";
             this.btnSearchProgramasByFood.Size = new System.Drawing.Size(160, 78);
             this.btnSearchProgramasByFood.TabIndex = 14;
@@ -113,7 +117,7 @@
             this.btnSearchPrograms.BackColor = System.Drawing.Color.White;
             this.btnSearchPrograms.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchPrograms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(31)))), ((int)(((byte)(68)))));
-            this.btnSearchPrograms.Location = new System.Drawing.Point(15, 236);
+            this.btnSearchPrograms.Location = new System.Drawing.Point(15, 257);
             this.btnSearchPrograms.Name = "btnSearchPrograms";
             this.btnSearchPrograms.Size = new System.Drawing.Size(160, 78);
             this.btnSearchPrograms.TabIndex = 13;
@@ -126,7 +130,7 @@
             this.btnNewProgram.BackColor = System.Drawing.Color.White;
             this.btnNewProgram.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(31)))), ((int)(((byte)(68)))));
-            this.btnNewProgram.Location = new System.Drawing.Point(377, 236);
+            this.btnNewProgram.Location = new System.Drawing.Point(377, 257);
             this.btnNewProgram.Name = "btnNewProgram";
             this.btnNewProgram.Size = new System.Drawing.Size(160, 78);
             this.btnNewProgram.TabIndex = 12;
@@ -139,7 +143,7 @@
             this.btnStartWithProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(31)))), ((int)(((byte)(68)))));
             this.btnStartWithProgram.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartWithProgram.ForeColor = System.Drawing.Color.White;
-            this.btnStartWithProgram.Location = new System.Drawing.Point(377, 332);
+            this.btnStartWithProgram.Location = new System.Drawing.Point(377, 353);
             this.btnStartWithProgram.Name = "btnStartWithProgram";
             this.btnStartWithProgram.Size = new System.Drawing.Size(160, 78);
             this.btnStartWithProgram.TabIndex = 11;
@@ -152,7 +156,7 @@
             this.txtFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFood.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(31)))), ((int)(((byte)(68)))));
-            this.txtFood.Location = new System.Drawing.Point(15, 153);
+            this.txtFood.Location = new System.Drawing.Point(15, 163);
             this.txtFood.Name = "txtFood";
             this.txtFood.Size = new System.Drawing.Size(522, 26);
             this.txtFood.TabIndex = 10;
@@ -227,7 +231,7 @@
             this.txtFeedback.Name = "txtFeedback";
             this.txtFeedback.ReadOnly = true;
             this.txtFeedback.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtFeedback.Size = new System.Drawing.Size(675, 314);
+            this.txtFeedback.Size = new System.Drawing.Size(675, 326);
             this.txtFeedback.TabIndex = 5;
             // 
             // panel2
@@ -235,7 +239,7 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.btnStop);
             this.panel2.Controls.Add(this.btnPause);
-            this.panel2.Location = new System.Drawing.Point(12, 326);
+            this.panel2.Location = new System.Drawing.Point(12, 344);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(675, 112);
             this.panel2.TabIndex = 6;
@@ -267,6 +271,30 @@
             this.btnPause.UseVisualStyleBackColor = false;
             this.btnPause.Visible = false;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // chk
+            // 
+            this.chk.AutoSize = true;
+            this.chk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(31)))), ((int)(((byte)(68)))));
+            this.chk.Location = new System.Drawing.Point(16, 215);
+            this.chk.Name = "chk";
+            this.chk.Size = new System.Drawing.Size(238, 21);
+            this.chk.TabIndex = 15;
+            this.chk.Text = "Mostrar feedback em arquivo";
+            this.chk.UseVisualStyleBackColor = true;
+            this.chk.CheckedChanged += new System.EventHandler(this.chk_CheckedChanged);
+            // 
+            // txtPath
+            // 
+            this.txtPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(31)))), ((int)(((byte)(68)))));
+            this.txtPath.Location = new System.Drawing.Point(260, 210);
+            this.txtPath.Name = "txtPath";
+            this.txtPath.Size = new System.Drawing.Size(277, 26);
+            this.txtPath.TabIndex = 16;
+            this.txtPath.Visible = false;
             // 
             // FormHome
             // 
@@ -308,5 +336,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnPause;
         public System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.TextBox txtPath;
+        private System.Windows.Forms.CheckBox chk;
     }
 }

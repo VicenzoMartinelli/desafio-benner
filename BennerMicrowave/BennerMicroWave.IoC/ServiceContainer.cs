@@ -12,8 +12,12 @@ namespace BennerMicroWave.IoC
             where TInterface : class
             where TImplementation : class, TInterface
         {
-            _services.Add(typeof(TInterface), typeof(TImplementation));
-            _creators.Add(typeof(TInterface), createFunction);
+            if (!_services.ContainsKey(typeof(TInterface)))
+            {
+                _services.Add(typeof(TInterface), typeof(TImplementation));
+                _creators.Add(typeof(TInterface), createFunction);
+            }
+
         }
 
         public static TInterface Get<TInterface>()
